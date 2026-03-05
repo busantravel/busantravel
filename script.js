@@ -140,3 +140,26 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
   btn.style.display = "block";
   this.reset();
 });
+// IMAGE ZOOM
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const images = document.querySelectorAll(".zoomable");
+const closeBtn = document.querySelector(".close-image");
+
+images.forEach(img => {
+  img.addEventListener("click", function() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+  });
+});
+
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+};
+
+// click ra ngoài cũng đóng
+modal.onclick = function(e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+};
